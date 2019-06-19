@@ -46,10 +46,10 @@ $(function() {
       // Ensures the menu changes visibility when the menu icon is clicked.
       it('menu visible on click', function() {                              // http://api.jquery.com/trigger/
         $('.menu-icon-link').trigger('click');
-        expect($('body').hasClass('menu-hidden')).toBeFalsy();
+        expect($('body').hasClass('menu-hidden')).toBe(false);
 
         $('.menu-icon-link').trigger('click');
-        expect($('body').hasClass('menu-hidden')).toBeTruthy();
+        expect($('body').hasClass('menu-hidden')).toBe(true);
 
       });
   });
@@ -68,9 +68,9 @@ $(function() {
   });
 
     describe('New Feed Selection', function() {
+      ogFeed = $('.feed').html();                     // https://www.w3schools.com/jquery/html_html.asp
       beforeEach(function(done) {
         loadFeed(0, function() {
-          ogFeed = $('.feed').html();                     // https://www.w3schools.com/jquery/html_html.asp
         });
         loadFeed(1, function() {
           done();
@@ -85,7 +85,7 @@ $(function() {
     });
 }());
 
-/* Also referenced
+/* Also referenced: 
 * https://medium.com/letsboot/testing-javascript-with-jasmine-basics-48efe03cf973
 * https://www.youtube.com/watch?v=pPt4oOKNdEk
 *
